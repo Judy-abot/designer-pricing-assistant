@@ -1,0 +1,13 @@
+{
+  "ridge_baseline": {
+    "mae_usd": 12.39,
+    "mape_pct": 15.0,
+    "r2": 0.855
+  },
+  "xgboost": {
+    "mae_usd": 11.36,
+    "mape_pct": 13.89,
+    "r2": 0.885,
+    "log_residual_std": 0.1724
+  }
+}
