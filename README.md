@@ -39,7 +39,7 @@ python src/train_model.py                    # auto-detects data/raw/listings.cs
 streamlit run app.py
 ```
 
-Nothing else needs to change — `train_model.py` prefers `data/raw/listings.csv`
+Nothing else needs to change, `train_model.py` prefers `data/raw/listings.csv`
 over the sample set automatically, and the app reads whatever
 `data/processed/comparables.csv` training produced.
 
@@ -92,11 +92,7 @@ Trained on 3,500 synthetic listings (`python src/train_model.py`):
 | Ridge baseline | $12.39 | 15.0%  | 0.855 |
 | XGBoost        | $11.36 | 13.9%  | 0.885 |
 
-Numbers will shift once trained on real Etsy data — the synthetic
+Numbers will shift once trained on real Etsy data, the synthetic
 generator's noise level was chosen to be a reasonable stand-in, not a
 promise of real-world accuracy.
 
-## CV line
-
-> Built a pricing recommendation tool for independent designers, trained
-> on 2,000+ real marketplace listings using gradient boosting.
