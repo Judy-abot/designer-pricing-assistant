@@ -1,8 +1,8 @@
 # Marketplace Price Intelligence
 
-A price-estimation tool for independent and student designers selling handmade women's clothing. Enter an item's category, material, and region to see a typical marketplace price range — backed by real comparable listings and a transparent, feature-by-feature explanation of the estimate.
+A price-estimation tool for independent and student designers selling handmade women's clothing. Enter an item's category, material, and region to see a typical marketplace price range, backed by real comparable listings and a transparent, feature-by-feature explanation of the estimate.
 
-Built on ~4,500 real listings pulled live from the Etsy Open API v3, filtered to items the seller made themselves. Etsy hosts handmade goods, vintage resale, and mass-produced items side by side — the collector uses Etsy's own `who_made` field to keep only genuinely designer-made pieces, so resale and manufactured listings never enter the training data.
+Built on ~4,500 real listings pulled live from the Etsy Open API v3, filtered to items the seller made themselves. Etsy hosts handmade goods, vintage resale, and mass-produced items side by side. the collector uses Etsy's own `who_made` field to keep only genuinely designer-made pieces, so resale and manufactured listings never enter the training data.
 
 ![App screenshot](docs/screenshot.png)
 
@@ -26,11 +26,9 @@ Evaluated on a held-out 20% test split, currency-normalized to USD (21 currencie
 
 The pipeline evaluates all three real candidates and automatically deploys whichever wins on held-out R² — Random Forest, here, by a small but consistent margin over XGBoost. Both are retained as tree-based candidates specifically because SHAP's explainability method requires a tree-based model; Ridge stays in the table as a linear baseline for context.
 
-Feature importance was cross-checked with permutation importance (which, unlike a tree ensemble's default importance metric, isn't biased toward numeric features with many split points). `quantity` came out as the strongest single predictor — a listing's quantity acts as a proxy for one-of-a-kind/custom work (quantity 1) versus repeatable batch production, a real and economically sensible pattern in a handmade marketplace, not a modeling artifact.
+Feature importance was cross-checked with permutation importance (which, unlike a tree ensemble's default importance metric, isn't biased toward numeric features with many split points). `quantity` came out as the strongest single predictor, a listing's quantity acts as a proxy for one-of-a-kind/custom work (quantity 1) versus repeatable batch production, a real and economically sensible pattern in a handmade marketplace, not a modeling artifact.
 
 A modest R² here reflects a real, honest limitation rather than a bug: seller reputation, photo quality, and listing quality all meaningfully affect real marketplace prices, and none of them exist in this dataset. See `docs/` for the full technical writeups.
-
-*(Table above is from an interim dataset — rerun `python src/train_model.py` on the final collected data and update these numbers before sharing.)*
 
 ## Architecture
 
