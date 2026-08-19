@@ -1,13 +1,63 @@
 {
+  "naive_median_baseline": {
+    "mae_usd": 55.68,
+    "rmse_usd": 100.64,
+    "median_ae_usd": 30.0,
+    "mape_pct": 129.89,
+    "r2": -0.091
+  },
   "ridge_baseline": {
-    "mae_usd": 12.39,
-    "mape_pct": 15.0,
-    "r2": 0.855
+    "mae_usd": 50.45,
+    "rmse_usd": 92.42,
+    "median_ae_usd": 25.19,
+    "mape_pct": 90.3,
+    "r2": 0.08
+  },
+  "random_forest": {
+    "mae_usd": 33.91,
+    "rmse_usd": 71.96,
+    "median_ae_usd": 16.29,
+    "mape_pct": 76.56,
+    "r2": 0.442,
+    "log_residual_std": 0.6495,
+    "interval_coverage_pct": 76.6,
+    "per_category_mae": {
+      "Dresses (Bridal/Formal)": {
+        "mae_usd": 94.06,
+        "n_test_rows": 54
+      },
+      "Dresses (Casual)": {
+        "mae_usd": 54.42,
+        "n_test_rows": 108
+      },
+      "Outerwear & Coats": {
+        "mae_usd": 39.4,
+        "n_test_rows": 141
+      },
+      "Pants & Trousers": {
+        "mae_usd": 16.46,
+        "n_test_rows": 147
+      },
+      "Skirts": {
+        "mae_usd": 30.4,
+        "n_test_rows": 134
+      },
+      "Sweaters & Knitwear": {
+        "mae_usd": 29.9,
+        "n_test_rows": 160
+      },
+      "Tops": {
+        "mae_usd": 17.5,
+        "n_test_rows": 156
+      }
+    }
   },
   "xgboost": {
-    "mae_usd": 11.36,
-    "mape_pct": 13.89,
-    "r2": 0.885,
-    "log_residual_std": 0.1724
-  }
+    "mae_usd": 36.01,
+    "rmse_usd": 73.6,
+    "median_ae_usd": 17.57,
+    "mape_pct": 76.95,
+    "r2": 0.416
+  },
+  "deployed_model": "Random Forest"
 }
